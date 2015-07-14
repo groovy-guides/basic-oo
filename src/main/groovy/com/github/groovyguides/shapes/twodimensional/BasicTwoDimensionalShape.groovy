@@ -1,5 +1,6 @@
 package com.github.groovyguides.shapes.twodimensional
 
+import com.github.groovyguides.shapes.measurement.Measurement
 import groovy.transform.ToString
 
 /**
@@ -10,10 +11,10 @@ import groovy.transform.ToString
 abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
 
     /** */
-    final protected Number perimeter
+    final protected Measurement perimeter
 
     /** */
-    final protected Number area
+    final protected Measurement area
 
     /**
      *
@@ -27,12 +28,12 @@ abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
      *
      * @return
      */
-    public Number getPerimeter() {perimeter}
+    public Measurement getPerimeter() {perimeter}
 
     /**
      *
      * @return
      */
-    public Number getArea() {area}
+    public Measurement getArea() {area}
 
 }
