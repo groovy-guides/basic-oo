@@ -9,16 +9,16 @@ class Rectangle extends BasicTwoDimensionalShape {
 
     private final Number width
     
-    public Rectangle() {
-        this(0,0)
-    }
+    private Rectangle() {}
     
-    public Rectangle(Number length, Number width) {
-        super(
-            length * 2 + width * 2,
-            length * width
-        )
+    Rectangle(Number length, Number width) {
+
+        if (length <=0 ) throw new IllegalArgumentException('The Length must be greater than 0')
+        if (width <=0 ) throw new IllegalArgumentException('The Width must be greater than 0')
+
         this.length = length
         this.width = width
+        super.perimeter = this.length * 2 + this.width * 2
+        super.area = this.length * this.width
     }    
 }

@@ -11,17 +11,15 @@ class Circle extends BasicTwoDimensionalShape {
     private final Number radius
     private final Number diameter
     
-    public Circle() {
-        super()
-    }
+    private Circle() {}
     
     public Circle(Number radius) {
-        super(
-            PI * radius * 2,
-            PI * radius**2
-        )
+        if (radius <=0 ) throw new IllegalArgumentException('The Radius must be greater than 0')
         this.radius = radius
         this.diameter = this.radius * 2
+        this.perimeter = PI * this.diameter
+        this.diameter = PI * this.radius**2
+
     }
     
 }

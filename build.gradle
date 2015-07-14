@@ -1,0 +1,25 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name:'groovy-all', version: "$project.groovyVersion"
+    testCompile group: 'org.spockframework', name: 'spock-core', version:"$project.spockVersion"
+}
+
+compileGroovy.sourceCompatibility = project.groovyVersion
+compileGroovy.targetCompatibility = project.groovyVersion
+
+task runScript (dependsOn: 'classes', type: JavaExec) {
+    description 'Runs the groovy script'
+    main = 'com.github.groovyguides.shapes.Main'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = project.gradleVersion
+}

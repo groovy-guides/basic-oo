@@ -4,9 +4,7 @@ import groovy.transform.ToString
 
 class Square extends Rectangle {
     
-    public Square() {
-        super()
-    }
+    private Square() {}
     
     public Square(Number length) {
         super(length, length)
