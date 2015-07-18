@@ -1,13 +1,15 @@
 package com.github.groovyguides.shapes.twodimensional
 
-import com.github.groovyguides.shapes.measurement.Measurement
-import groovy.transform.ToString
+import com.github.groovyguides.shapes.measurement.LengthMeasurement
 
 class Square extends Rectangle {
+
+    /**
+     * Not useful
+     */
+    Square() {}
     
-    private Square() {}
-    
-    public Square(Measurement length) {
+    public Square(LengthMeasurement length) {
         super(length, length)
     }
 }

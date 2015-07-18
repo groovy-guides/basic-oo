@@ -1,6 +1,6 @@
 package com.github.groovyguides.shapes.twodimensional
 
-import com.github.groovyguides.shapes.measurement.Measurement
+import com.github.groovyguides.shapes.measurement.LengthMeasurement
 
 /**
  *
@@ -11,11 +11,11 @@ interface TwoDimensionalShape {
      *
      * @return the perimeter of the shape
      */
-    public Measurement getPerimeter()
+    public LengthMeasurement getPerimeter()
 
     /**
      *
      * @return the area of the shape
      */
-    public Measurement getArea()
+    public LengthMeasurement getArea()
 }

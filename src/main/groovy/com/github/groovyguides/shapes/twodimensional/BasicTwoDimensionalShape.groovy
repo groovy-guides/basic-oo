@@ -1,39 +1,48 @@
 package com.github.groovyguides.shapes.twodimensional
 
-import com.github.groovyguides.shapes.measurement.Measurement
+import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import groovy.transform.ToString
 
 /**
- *
+ * Base class for 2D shapes
  * @author Duncan Dickinson
  */
 @ToString(includeNames=true,includeFields=true)
 abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
 
-    /** */
-    final protected Measurement perimeter
+    protected LengthMeasurement perimeter
 
-    /** */
-    final protected Measurement area
+    protected LengthMeasurement area
 
     /**
-     *
+     * Not used
      */
     protected BasicTwoDimensionalShape() {
 
     }
 
+    protected void setPerimeter(LengthMeasurement perimeter) {
+        this.perimeter = perimeter
+    }
+
+    protected void setArea(LengthMeasurement area) {
+        this.area = area
+    }
 
     /**
      *
-     * @return
+     * @return the perimeter of the shape
      */
-    public Measurement getPerimeter() {perimeter}
+    public LengthMeasurement getPerimeter() {
+        perimeter
+    }
 
     /**
      *
-     * @return
+     * @return the area of the shape
      */
-    public Measurement getArea() {area}
+    public LengthMeasurement getArea() {
+        area
+    }
 
 }
