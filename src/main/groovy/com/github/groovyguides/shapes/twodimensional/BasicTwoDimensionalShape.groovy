@@ -10,15 +10,41 @@ import groovy.transform.ToString
 @ToString(includeNames=true,includeFields=true)
 abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
 
-    protected LengthMeasurement perimeter
+    private LengthMeasurement perimeter = null
 
-    protected LengthMeasurement area
+    private LengthMeasurement area = null
 
     /**
      * Not used
      */
     protected BasicTwoDimensionalShape() {
 
+    }
+
+    abstract protected void calculatePerimeter()
+
+    abstract protected void calculateArea()
+
+    /**
+     *
+     * @return the perimeter of the shape
+     */
+    public LengthMeasurement getPerimeter() {
+        if (!this.perimeter) {
+            calculatePerimeter()
+        }
+        this.perimeter
+    }
+
+    /**
+     *
+     * @return the area of the shape
+     */
+    public LengthMeasurement getArea() {
+        if (!this.area) {
+            calculateArea()
+        }
+        this.area
     }
 
     protected void setPerimeter(LengthMeasurement perimeter) {
@@ -28,21 +54,4 @@ abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
     protected void setArea(LengthMeasurement area) {
         this.area = area
     }
-
-    /**
-     *
-     * @return the perimeter of the shape
-     */
-    public LengthMeasurement getPerimeter() {
-        perimeter
-    }
-
-    /**
-     *
-     * @return the area of the shape
-     */
-    public LengthMeasurement getArea() {
-        area
-    }
-
 }

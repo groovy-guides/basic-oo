@@ -1,6 +1,7 @@
 package com.github.groovyguides.shapes.measurement
 
 import spock.lang.Specification
+import spock.lang.Subject
 import spock.lang.Unroll
 
 /**
@@ -9,6 +10,7 @@ import spock.lang.Unroll
  * @author Duncan Dickinson
  */
 @Unroll
+@Subject(LengthMeasurement)
 class LengthMeasurementTest extends Specification {
     def "Creating a new Measurement instance with a positive value (#value) and a UnitOfMeasurement (#uom) will produce the correct measurement instance"() {
 

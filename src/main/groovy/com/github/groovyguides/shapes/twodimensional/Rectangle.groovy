@@ -1,6 +1,7 @@
 package com.github.groovyguides.shapes.twodimensional
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
+import com.github.groovyguides.shapes.measurement.SameUoLRequiredException
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -24,10 +25,20 @@ class Rectangle extends BasicTwoDimensionalShape {
      * @throws IllegalArgumentException if the length and width are of different units of measurement
      */
     Rectangle(LengthMeasurement length, LengthMeasurement width) throws IllegalArgumentException {
-        LengthMeasurement.checkUnitsOfMeasurementAreTheSame(length, width)
+        if (!LengthMeasurement.checkUnitsOfMeasurementAreTheSame(length, width)){
+            throw new SameUoLRequiredException()
+        }
         this.length = length
         this.width = width
+    }
+
+    @Override
+    protected void calculatePerimeter() {
         this.setPerimeter(this.length * 2 + this.width * 2)
+    }
+
+    @Override
+    protected void calculateArea() {
         this.area = this.length * this.width
     }
 

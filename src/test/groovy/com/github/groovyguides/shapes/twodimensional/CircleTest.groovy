@@ -2,12 +2,16 @@ package com.github.groovyguides.shapes.twodimensional
 
 import com.github.groovyguides.shapes.measurement.Millimetre
 import spock.lang.Specification
+import spock.lang.Subject
+import spock.lang.Unroll
 
 /**
  *
  *
  * @author Duncan Dickinson
  */
+@Unroll
+@Subject(Circle)
 class CircleTest extends Specification {
     def "Test that a Circle of radius #radius has a diameter of #diameter, a perimeter of #perimeter and an area of #area"() {
         given: "A new Circle"

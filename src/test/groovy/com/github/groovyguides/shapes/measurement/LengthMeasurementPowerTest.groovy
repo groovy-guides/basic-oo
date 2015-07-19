@@ -2,6 +2,7 @@ package com.github.groovyguides.shapes.measurement
 
 import com.github.groovyguides.shapes.measurement.UnitOfLength as UoM
 import spock.lang.Specification
+import spock.lang.Subject
 import spock.lang.Unroll
 
 /**
@@ -10,6 +11,7 @@ import spock.lang.Unroll
  * @author Duncan Dickinson
  */
 @Unroll
+@Subject(LengthMeasurement)
 class LengthMeasurementPowerTest extends Specification {
     def "A measurement with value (#left) to the power (#exponent) a new measurement will be returned with the value #answer"() {
         given: "A measurement and an exponent"

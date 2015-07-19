@@ -2,6 +2,7 @@ package com.github.groovyguides.shapes.measurement
 
 import com.github.groovyguides.shapes.measurement.UnitOfLength as UoM
 import spock.lang.Specification
+import spock.lang.Subject
 import spock.lang.Unroll
 
 /**
@@ -10,6 +11,7 @@ import spock.lang.Unroll
  * @author Duncan Dickinson
  */
 @Unroll
+@Subject(LengthMeasurement)
 class LengthMeasurementMinusTest extends Specification {
     def "Subtracting two measurements with the values #left, #right results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"

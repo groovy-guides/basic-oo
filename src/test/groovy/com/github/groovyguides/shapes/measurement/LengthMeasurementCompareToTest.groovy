@@ -1,12 +1,16 @@
 package com.github.groovyguides.shapes.measurement
 
 import spock.lang.Specification
+import spock.lang.Subject
+import spock.lang.Unroll
 
 /**
  *
  *
  * @author Duncan Dickinson
  */
+@Unroll
+@Subject(LengthMeasurement)
 class LengthMeasurementCompareToTest extends Specification {
     def "The compareTo method for two Measurements with values (#left, #right) will return the correct answer (#answer)"() {
         given: "two measurements"

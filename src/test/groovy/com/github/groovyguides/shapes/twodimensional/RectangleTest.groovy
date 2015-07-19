@@ -5,12 +5,16 @@ import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import com.github.groovyguides.shapes.measurement.Millimetre
 import com.github.groovyguides.shapes.measurement.UnitOfLength
 import spock.lang.Specification
+import spock.lang.Subject
+import spock.lang.Unroll
 
 /**
  *
  *
  * @author Duncan Dickinson
  */
+@Unroll
+@Subject(Rectangle)
 class RectangleTest extends Specification {
     def "Test that a rectangle of length #length and width #width has a perimeter of #perimeter and an area of #area"() {
         given: "A new rectangle"

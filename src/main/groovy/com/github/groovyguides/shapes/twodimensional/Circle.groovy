@@ -17,7 +17,15 @@ class Circle extends BasicTwoDimensionalShape {
     public Circle(LengthMeasurement radius) {
         this.radius = radius
         this.diameter = this.radius * 2
+    }
+
+    @Override
+    protected void calculatePerimeter() {
         this.perimeter = this.diameter * PI
+    }
+
+    @Override
+    protected void calculateArea() {
         this.area = this.radius**2 * PI
     }
 
@@ -30,6 +38,6 @@ class Circle extends BasicTwoDimensionalShape {
     }
 
     LengthMeasurement getCircumference() {
-        return perimeter
+        return super.perimeter
     }
 }
