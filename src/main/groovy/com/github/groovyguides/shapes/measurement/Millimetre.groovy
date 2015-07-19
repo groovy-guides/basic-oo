@@ -7,7 +7,7 @@ package com.github.groovyguides.shapes.measurement
  */
 class Millimetre extends LengthMeasurement {
 
-    Millimetre(Integer value) {
+    Millimetre(Number value) {
         super(value, UnitOfLength.Millimetre)
     }
 }

@@ -7,7 +7,7 @@ package com.github.groovyguides.shapes.measurement
  */
 class Inch extends LengthMeasurement {
 
-    Inch(Integer value) {
+    Inch(Number value) {
         super(value, UnitOfLength.Inch)
     }
 }
