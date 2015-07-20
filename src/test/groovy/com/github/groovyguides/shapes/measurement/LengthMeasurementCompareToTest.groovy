@@ -14,8 +14,8 @@ import spock.lang.Unroll
 class LengthMeasurementCompareToTest extends Specification {
     def "The compareTo method for two Measurements with values (#left, #right) will return the correct answer (#answer)"() {
         given: "two measurements"
-            LengthMeasurement lhs = new LengthMeasurement(left, UnitOfLength.Millimetre)
-            LengthMeasurement rhs = new LengthMeasurement(right, UnitOfLength.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UnitOfLength.MILLIMETRE)
+            LengthMeasurement rhs = new LengthMeasurement(right, UnitOfLength.MILLIMETRE)
         when: "the two measurements are compared"
             def result = lhs <=> rhs
         then: "compareTo will result in the correct answer"
@@ -45,7 +45,7 @@ class LengthMeasurementCompareToTest extends Specification {
 
         where:
         left                          | right
-        UnitOfLength.Millimetre  | UnitOfLength.Inch
-        UnitOfLength.Inch        | UnitOfLength.Millimetre
+        UnitOfLength.MILLIMETRE  | UnitOfLength.INCH
+        UnitOfLength.INCH        | UnitOfLength.MILLIMETRE
     }
 }

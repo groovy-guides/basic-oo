@@ -1,12 +1,14 @@
 package com.github.groovyguides.shapes.measurement
 
+import com.github.groovyguides.shapes.util.Messages
+
 /**
  *
  *
  * @author Duncan Dickinson
  */
 class SameUoLRequiredException extends IllegalArgumentException {
-    public static final String SAME_UOL_REQUIRED = 'Can only use Measurements with the same UnitOfLength'
+    public static final String SAME_UOL_REQUIRED = Messages.getString('SameUoLRequiredException.message')
 
     SameUoLRequiredException() {
         super(SAME_UOL_REQUIRED)
@@ -21,6 +23,6 @@ class SameUoLRequiredException extends IllegalArgumentException {
     }
 
     SameUoLRequiredException(Throwable cause) {
-        super(cause)
+        super(SAME_UOL_REQUIRED, cause)
     }
 }

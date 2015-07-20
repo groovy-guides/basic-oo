@@ -8,6 +8,6 @@ package com.github.groovyguides.shapes.measurement
 class Inch extends LengthMeasurement {
 
     Inch(Number value) {
-        super(value, UnitOfLength.Inch)
+        super(value, UnitOfLength.INCH)
     }
 }

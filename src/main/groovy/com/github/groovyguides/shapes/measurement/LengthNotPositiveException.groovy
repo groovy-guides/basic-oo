@@ -1,12 +1,14 @@
 package com.github.groovyguides.shapes.measurement
 
+import com.github.groovyguides.shapes.util.Messages
+
 /**
  *
  *
  * @author Duncan Dickinson
  */
 class LengthNotPositiveException extends IllegalArgumentException {
-    public static final String LENGTH_GREATER_THAN_0 = 'The length must be greater than 0'
+    public static final String LENGTH_GREATER_THAN_0 = Messages.getString('LengthNotPositiveException.message')
 
     LengthNotPositiveException() {
         super(LENGTH_GREATER_THAN_0)
@@ -21,6 +23,6 @@ class LengthNotPositiveException extends IllegalArgumentException {
     }
 
     LengthNotPositiveException(Throwable cause) {
-        super(cause)
+        super(LENGTH_GREATER_THAN_0, cause)
     }
 }

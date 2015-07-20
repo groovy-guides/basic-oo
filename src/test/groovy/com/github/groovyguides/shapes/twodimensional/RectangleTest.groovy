@@ -34,8 +34,8 @@ class RectangleTest extends Specification {
     def "Another test that a rectangle of length #length and width #width has a perimeter of #perimeter and an area of #area"() {
         //A minor variation of the previous - just using the base LengthMeasurement class and not a subclass thereof
         given: "A new rectangle"
-        LengthMeasurement l = new LengthMeasurement(length, UnitOfLength.Inch)
-        LengthMeasurement w = new LengthMeasurement(width, UnitOfLength.Inch)
+        LengthMeasurement l = new LengthMeasurement(length, UnitOfLength.INCH)
+        LengthMeasurement w = new LengthMeasurement(width, UnitOfLength.INCH)
         Rectangle r = new Rectangle(l, w)
         expect: "that the fields are set correctly"
         r.length.length == length
@@ -63,7 +63,7 @@ class RectangleTest extends Specification {
         length                | width
         new Millimetre(10)  | new Inch(99)
         new Inch(8)         | new Millimetre(2)
-        new LengthMeasurement(6, UnitOfLength.Inch) | new LengthMeasurement(7, UnitOfLength.Millimetre)
-        new LengthMeasurement(9, UnitOfLength.Millimetre) | new Inch(12)
+        new LengthMeasurement(6, UnitOfLength.INCH) | new LengthMeasurement(7, UnitOfLength.MILLIMETRE)
+        new LengthMeasurement(9, UnitOfLength.MILLIMETRE) | new Inch(12)
     }
 }

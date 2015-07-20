@@ -1,5 +1,7 @@
 package com.github.groovyguides.shapes.measurement
 
+import com.github.groovyguides.shapes.util.Messages
+
 /**
  * An example enum used to describe two units of length:
  * inches and millimetres
@@ -10,8 +12,8 @@ package com.github.groovyguides.shapes.measurement
  */
 enum UnitOfLength {
 
-    Millimetre('Millimetre', 'mm'),
-    Inch('Inch', 'in')
+    MILLIMETRE(*loadText('mm')),
+    INCH(*loadText('in'))
 
     private final String name
     private final String symbol
@@ -19,6 +21,11 @@ enum UnitOfLength {
     UnitOfLength(String name, String symbol){
         this.name = name
         this.symbol = symbol
+    }
+
+    private static List loadText(String symbol) {
+        [Messages.getString("UnitOfLength.${symbol}.name"),
+         Messages.getString("UnitOfLength.${symbol}.symbol")]
     }
 
 }

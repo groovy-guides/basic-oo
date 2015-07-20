@@ -15,7 +15,7 @@ import spock.lang.Unroll
 class LengthMeasurementMultiplyTest extends Specification {
     def "Multiplying a measurement (#left) by a number (#right) results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"
-        LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
+        LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
         Number rhs = right
 
         when: "they are divided"
@@ -34,8 +34,8 @@ class LengthMeasurementMultiplyTest extends Specification {
 
     def "Multiplying two measurements (#left, #right) results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"
-        LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
-        LengthMeasurement rhs = new LengthMeasurement(right, UoM.Millimetre)
+        LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
+        LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
         when: "they are divided"
         LengthMeasurement result = lhs * rhs
@@ -53,7 +53,7 @@ class LengthMeasurementMultiplyTest extends Specification {
 
     def "Attempting to multiply a measurement by a number <= 0 (#right) throws an IllegalArgumentException"() {
         given: "One measurement and a Number"
-        LengthMeasurement lhs = new LengthMeasurement(left, UnitOfLength.Inch)
+        LengthMeasurement lhs = new LengthMeasurement(left, UnitOfLength.INCH)
         Integer rhs = right
 
         when: "The length of the RHS operand is <=0"
@@ -93,7 +93,7 @@ class LengthMeasurementMultiplyTest extends Specification {
 
         where: "the left and right measurement values are"
             left | right
-            new LengthMeasurement(10, UoM.Millimetre) | new LengthMeasurement(10, UoM.Inch)
-            new LengthMeasurement(10, UoM.Inch) | new LengthMeasurement(10, UoM.Millimetre)
+            new LengthMeasurement(10, UoM.MILLIMETRE) | new LengthMeasurement(10, UoM.INCH)
+            new LengthMeasurement(10, UoM.INCH) | new LengthMeasurement(10, UoM.MILLIMETRE)
     }
 }

@@ -15,7 +15,7 @@ import spock.lang.Unroll
 class LengthMeasurementPowerTest extends Specification {
     def "A measurement with value (#left) to the power (#exponent) a new measurement will be returned with the value #answer"() {
         given: "A measurement and an exponent"
-            LengthMeasurement m = new LengthMeasurement(length, UoM.Millimetre)
+            LengthMeasurement m = new LengthMeasurement(length, UoM.MILLIMETRE)
             Number exp = exponent
 
         when: "they are divided"
@@ -32,7 +32,7 @@ class LengthMeasurementPowerTest extends Specification {
 
     def "A measurement with value (#left) to a negative power (#exponent) will fail to create a new instance as the resulting value will be a decimal"() {
         given: "A measurement and an exponent"
-            LengthMeasurement m = new LengthMeasurement(length, UoM.Millimetre)
+            LengthMeasurement m = new LengthMeasurement(length, UoM.MILLIMETRE)
             Number exp = exponent
 
         when: "they are divided"

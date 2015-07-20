@@ -1,7 +1,6 @@
 package com.github.groovyguides.shapes.twodimensional
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
-import com.github.groovyguides.shapes.measurement.Millimetre
 import com.github.groovyguides.shapes.measurement.UnitOfLength
 import spock.lang.Specification
 import spock.lang.Subject
@@ -17,7 +16,7 @@ import spock.lang.Unroll
 class SquareTest extends Specification {
     def "Test that a Square of length #length has a perimeter of #perimeter and an area of #area"() {
         given: "A new Square"
-            Square s = new Square(new LengthMeasurement(length, UnitOfLength.Millimetre))
+            Square s = new Square(new LengthMeasurement(length, UnitOfLength.MILLIMETRE))
         expect: "that the fields are set correctly"
             s.length.length == length
             s.length == s.width

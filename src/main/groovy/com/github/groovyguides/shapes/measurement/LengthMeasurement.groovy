@@ -1,5 +1,6 @@
 package com.github.groovyguides.shapes.measurement
 
+import com.github.groovyguides.shapes.util.Messages
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
@@ -13,8 +14,6 @@ import groovy.transform.ToString
 @EqualsAndHashCode(includeFields = true, cache = true)
 @ToString(includeNames = true, includeFields = true)
 class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
-
-    public static final String POSITIVE_EXPONENT = 'The exponent must be a positive number'
 
     /** The length measured */
     private final Number length
@@ -118,7 +117,8 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @throws IllegalArgumentException if the measurements are of different units or if the operation results in a
      *      length <= 0
      */
-    public LengthMeasurement minus(LengthMeasurement right) throws SameUoLRequiredException {
+    public LengthMeasurement minus(LengthMeasurement right)
+            throws SameUoLRequiredException, LengthNotPositiveException {
         if (!checkUnitsOfMeasurementAreTheSame(this, right)) {
             throw new SameUoLRequiredException()
         }
@@ -135,7 +135,6 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
         if (!checkMeasurementValueIsPositive(right)) {
             throw new LengthNotPositiveException()
         }
-
         return new LengthMeasurement(this.length - right, this.unitOfLength)
     }
 
@@ -185,9 +184,9 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if exponent <= 0
      */
-    public LengthMeasurement power(Integer exponent) throws IllegalArgumentException {
+    public LengthMeasurement power(Integer exponent) throws NonPositiveExponentException, LengthNotPositiveException {
         if (exponent < 0) {
-            throw new IllegalArgumentException(POSITIVE_EXPONENT)
+            throw new NonPositiveExponentException()
         }
         return new LengthMeasurement(this.length**exponent, this.unitOfLength)
     }
@@ -208,5 +207,24 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
     @Override
     protected LengthMeasurement clone() throws CloneNotSupportedException {
         return new LengthMeasurement(this.length, this.unitOfLength)
+    }
+
+    class NonPositiveExponentException extends IllegalArgumentException {
+        public static final String NON_POSITIVE_EXPONENT = Messages.getString('NonPositiveExponentException.message')
+        NonPositiveExponentException() {
+            super(NON_POSITIVE_EXPONENT)
+        }
+
+        NonPositiveExponentException(String message) {
+            super(message)
+        }
+
+        NonPositiveExponentException(String message, Throwable cause) {
+            super(message, cause)
+        }
+
+        NonPositiveExponentException(Throwable cause) {
+            super(NON_POSITIVE_EXPONENT, cause)
+        }
     }
 }

@@ -24,9 +24,9 @@ class LengthMeasurementTest extends Specification {
 
         where: "the values are"
             length  | uom                            || _
-            1       | UnitOfLength.Inch         || _
-            1       | UnitOfLength.Millimetre   || _
-            99      | UnitOfLength.Inch         || _
+            1       | UnitOfLength.INCH         || _
+            1       | UnitOfLength.MILLIMETRE   || _
+            99      | UnitOfLength.INCH         || _
 
     }
 
@@ -36,7 +36,7 @@ class LengthMeasurementTest extends Specification {
         when: "an attempt is made to create a new instance with a negative length"
             Exception e = null
             try {
-                LengthMeasurement m = new LengthMeasurement(length, UnitOfLength.Inch)
+                LengthMeasurement m = new LengthMeasurement(length, UnitOfLength.INCH)
             } catch (any) {
                 e = any
             }

@@ -15,8 +15,8 @@ import spock.lang.Unroll
 class LengthMeasurementMinusTest extends Specification {
     def "Subtracting two measurements with the values #left, #right results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
-            LengthMeasurement rhs = new LengthMeasurement(right, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
+            LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
         when: "they are subtracted"
             LengthMeasurement result = lhs - rhs
@@ -34,8 +34,8 @@ class LengthMeasurementMinusTest extends Specification {
 
     def "Subtracting two measurements with the values #left, #right will result in a negative or zero measurement and will throw an IllegalArgumentException"() {
         given: "Two measurements with the same unitOfLength of measurement"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
-            LengthMeasurement rhs = new LengthMeasurement(right, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
+            LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
         when: "The length of the RHS operand is > the length of the LHS"
             Exception e = null
@@ -74,8 +74,8 @@ class LengthMeasurementMinusTest extends Specification {
 
         where: "the left and right measurement values and their summed result are"
             left            | right
-            UoM.Millimetre  | UoM.Inch
-            UoM.Inch        | UoM.Millimetre
+            UoM.MILLIMETRE  | UoM.INCH
+            UoM.INCH        | UoM.MILLIMETRE
     }
 
 }

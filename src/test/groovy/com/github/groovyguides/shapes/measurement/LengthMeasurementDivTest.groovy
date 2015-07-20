@@ -15,7 +15,7 @@ import spock.lang.Unroll
 class LengthMeasurementDivTest extends Specification {
     def "Dividing a measurement (#left) by a number (#right) results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             Number rhs = right
 
         when: "they are divided"
@@ -34,7 +34,7 @@ class LengthMeasurementDivTest extends Specification {
 
     def "Attempting to divide a measurement by a number <= 0 (#right) throws an IllegalArgumentException"() {
         given: "One measurement and a Number"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             Number rhs = right
 
         when: "The length of the RHS operand is <=0"

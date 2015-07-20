@@ -15,8 +15,8 @@ import com.github.groovyguides.shapes.measurement.UnitOfLength as UoM
 class LengthMeasurementAddTest extends Specification {
     def "Adding two measurements with the values #left, #right results in a measurement with value #answer"() {
         given: "Two measurements with the same unitOfLength of measurement"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
-            LengthMeasurement rhs = new LengthMeasurement(right, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
+            LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
         when:
             LengthMeasurement result = lhs + rhs
@@ -34,7 +34,7 @@ class LengthMeasurementAddTest extends Specification {
 
     def "Adding a measurement with value #left and a Number (#right) results in a Measurement with value #answer"() {
         given: "One measurement and a Number"
-            LengthMeasurement lhs = new LengthMeasurement(left, UoM.Millimetre)
+            LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             Number rhs = right
 
         when:
@@ -69,8 +69,8 @@ class LengthMeasurementAddTest extends Specification {
 
         where: "the left and right measurement values and their summed result are"
             left            | right
-            UoM.Millimetre  | UoM.Inch
-            UoM.Inch        | UoM.Millimetre
+            UoM.MILLIMETRE  | UoM.INCH
+            UoM.INCH        | UoM.MILLIMETRE
     }
 
 }

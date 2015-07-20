@@ -21,15 +21,15 @@ class CheckUnitsOfMeasurementAreTheSameTest extends Specification {
         where:
         list || result
         [] || true
-        [UnitOfLength.Inch] || true
-        [UnitOfLength.Millimetre] || true
-        [UnitOfLength.Inch, UnitOfLength.Inch] || true
-        [UnitOfLength.Millimetre, UnitOfLength.Millimetre] || true
-        [UnitOfLength.Inch, UnitOfLength.Inch, UnitOfLength.Millimetre] || false
-        [UnitOfLength.Inch, UnitOfLength.Millimetre, UnitOfLength.Millimetre] || false
-        [UnitOfLength.Millimetre, UnitOfLength.Millimetre, UnitOfLength.Inch] || false
-        [UnitOfLength.Millimetre, UnitOfLength.Inch, UnitOfLength.Inch] || false
-        [UnitOfLength.Inch, UnitOfLength.Inch, UnitOfLength.Inch] || true
-        [UnitOfLength.Millimetre, UnitOfLength.Millimetre, UnitOfLength.Millimetre] || true
+        [UnitOfLength.INCH] || true
+        [UnitOfLength.MILLIMETRE] || true
+        [UnitOfLength.INCH, UnitOfLength.INCH] || true
+        [UnitOfLength.MILLIMETRE, UnitOfLength.MILLIMETRE] || true
+        [UnitOfLength.INCH, UnitOfLength.INCH, UnitOfLength.MILLIMETRE] || false
+        [UnitOfLength.INCH, UnitOfLength.MILLIMETRE, UnitOfLength.MILLIMETRE] || false
+        [UnitOfLength.MILLIMETRE, UnitOfLength.MILLIMETRE, UnitOfLength.INCH] || false
+        [UnitOfLength.MILLIMETRE, UnitOfLength.INCH, UnitOfLength.INCH] || false
+        [UnitOfLength.INCH, UnitOfLength.INCH, UnitOfLength.INCH] || true
+        [UnitOfLength.MILLIMETRE, UnitOfLength.MILLIMETRE, UnitOfLength.MILLIMETRE] || true
     }
 }
