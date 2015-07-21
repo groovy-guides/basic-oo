@@ -18,7 +18,7 @@ enum UnitOfLength {
     private final String name
     private final String symbol
 
-    UnitOfLength(String name, String symbol){
+    UnitOfLength(String name, String symbol) {
         this.name = name
         this.symbol = symbol
     }

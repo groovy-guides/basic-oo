@@ -2,9 +2,9 @@ package com.github.groovyguides.shapes.twodimensional
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import com.github.groovyguides.shapes.measurement.SameUoLRequiredException
+import com.github.groovyguides.shapes.measurement.UnitOfLength
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
-import sun.security.util.Length
 
 /**
  *
@@ -12,12 +12,12 @@ import sun.security.util.Length
  * @author Duncan Dickinson
  */
 @EqualsAndHashCode(includeFields = true, cache = true)
-@ToString(includeNames=true,includeFields=true,includeSuper=true)
+@ToString(includeNames = true, includeFields = true, includeSuper = true)
 class Triangle extends BasicTwoDimensionalShape {
 
     private final Map<String, LengthMeasurement> sides
 
-    Triangle(){}
+    Triangle() {}
 
     Triangle(LengthMeasurement sideA, LengthMeasurement sideB, LengthMeasurement sideC)
             throws SameUoLRequiredException, IllegalArgumentException {
@@ -26,29 +26,29 @@ class Triangle extends BasicTwoDimensionalShape {
             throw new IllegalArgumentException('Unable to determine Sides a,b and c')
         }
 
-        if (!LengthMeasurement.checkUnitsOfMeasurementAreTheSame(sideA, sideB, sideC)){
+        if (!LengthMeasurement.checkUnitsOfMeasurementAreTheSame(sideA, sideB, sideC)) {
             throw new SameUoLRequiredException()
         }
 
-        this.sides = [a: sideA.clone() as LengthMeasurement,
-                      b: sideB.clone() as LengthMeasurement,
-                      c: sideC.clone() as LengthMeasurement].asImmutable()
+        this.sides = [a:sideA.clone() as LengthMeasurement,
+                      b:sideB.clone() as LengthMeasurement,
+                      c:sideC.clone() as LengthMeasurement].asImmutable()
     }
 
     Map<String, LengthMeasurement> getSides() {
-        return sides
+        sides
     }
 
     LengthMeasurement getSideA() {
-        return this.sides.a
+        this.sides.a
     }
 
     LengthMeasurement getSideB() {
-        return this.sides.b
+        this.sides.b
     }
 
     LengthMeasurement getSideC() {
-        return this.sides.c
+        this.sides.c
     }
 
     @Override
@@ -58,7 +58,7 @@ class Triangle extends BasicTwoDimensionalShape {
         for (LengthMeasurement side in this.sides.values()) {
             sum += side.length
         }
-         def uol = this.sides.a.unitOfLength
+        UnitOfLength uol = this.sides.a.unitOfLength
         this.setPerimeter(new LengthMeasurement(sum, uol))
     }
 
@@ -67,9 +67,9 @@ class Triangle extends BasicTwoDimensionalShape {
      */
     @Override
     protected void calculateArea() {
-        Number a = this.sides.a.getLength()
-        Number b = this.sides.b.getLength()
-        Number c = this.sides.c.getLength()
+        Number a = this.sides.a.length
+        Number b = this.sides.b.length
+        Number c = this.sides.c.length
 
         Number s = (a + b + c) / 2
 

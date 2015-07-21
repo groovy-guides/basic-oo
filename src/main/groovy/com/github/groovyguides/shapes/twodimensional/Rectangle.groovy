@@ -5,8 +5,11 @@ import com.github.groovyguides.shapes.measurement.SameUoLRequiredException
 import groovy.transform.EqualsAndHashCode
 import groovy.transform.ToString
 
+/**
+ * @author Duncan Dickinson
+ */
 @EqualsAndHashCode(includeFields = true, cache = true)
-@ToString(includeNames=true,includeFields=true,includeSuper=true)
+@ToString(includeNames = true, includeFields = true, includeSuper = true)
 class Rectangle extends BasicTwoDimensionalShape {
 
     private final LengthMeasurement length
@@ -16,7 +19,7 @@ class Rectangle extends BasicTwoDimensionalShape {
     /**
      * Not useful
      */
-    Rectangle() {}
+    Rectangle(){}
 
     /**
      * A rectangular shape
@@ -25,7 +28,7 @@ class Rectangle extends BasicTwoDimensionalShape {
      * @throws IllegalArgumentException if the length and width are of different units of measurement
      */
     Rectangle(LengthMeasurement length, LengthMeasurement width) throws IllegalArgumentException {
-        if (!LengthMeasurement.checkUnitsOfMeasurementAreTheSame(length, width)){
+        if (!LengthMeasurement.checkUnitsOfMeasurementAreTheSame(length, width)) {
             throw new SameUoLRequiredException()
         }
         this.length = length

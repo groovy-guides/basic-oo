@@ -14,13 +14,6 @@ abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
 
     private LengthMeasurement area = null
 
-    /**
-     * Not used
-     */
-    protected BasicTwoDimensionalShape() {
-
-    }
-
     abstract protected void calculatePerimeter()
 
     abstract protected void calculateArea()
@@ -29,7 +22,7 @@ abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
      *
      * @return the perimeter of the shape
      */
-    public LengthMeasurement getPerimeter() {
+    LengthMeasurement getPerimeter() {
         if (!this.perimeter) {
             calculatePerimeter()
         }
@@ -40,7 +33,7 @@ abstract class BasicTwoDimensionalShape implements TwoDimensionalShape {
      *
      * @return the area of the shape
      */
-    public LengthMeasurement getArea() {
+    LengthMeasurement getArea() {
         if (!this.area) {
             calculateArea()
         }

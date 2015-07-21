@@ -28,7 +28,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @throws IllegalArgumentException if length is <= 0
      */
     LengthMeasurement(Number length, UnitOfLength unitOfLength) throws LengthNotPositiveException {
-        if (!checkMeasurementValueIsPositive(length)){
+        if (!checkMeasurementValueIsPositive(length)) {
             throw new LengthNotPositiveException()
         }
         this.length = length
@@ -39,7 +39,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      *
      * @return the length of the measurement
      */
-    public Number getLength() {
+    Number getLength() {
         this.length
     }
 
@@ -47,7 +47,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      *
      * @return The unitOfLength of measurement in use
      */
-    public UnitOfLength getUnitOfLength() {
+    UnitOfLength getUnitOfLength() {
         this.unitOfLength
     }
 
@@ -57,24 +57,24 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return true if all checks succeed, an exception is raised otherwise
      */
     private static Boolean checkMeasurementValueIsPositive(Number v) {
-        return v > 0
+        v > 0
     }
 
     /**
-     * Many operations within this class rely on the two Measurement operands being of the same unitOfLength of measurement.
+     * Many operations within this class rely on the two Measurement
+     * operands being of the same unitOfLength of measurement.
      * No conversions (e.g. mm to inches) are attempted
      * @param measurements A series of measurements
      * @return true if all checks succeed, an exception is raised otherwise
      */
-    public
     static Boolean checkUnitsOfMeasurementAreTheSame(LengthMeasurement ...measurements) {
         if (measurements.size() <= 1) {
-            true
+            return true
         }
         UnitOfLength lastUoL = null
         for (m in measurements) {
             if (!lastUoL) {
-                lastUoL = m.getUnitOfLength()
+                lastUoL = m.unitOfLength
                 continue
             }
             if (m.unitOfLength != lastUoL) {
@@ -90,7 +90,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if the measurements are of different units or if the 'right' parameter is <= 0
      */
-    public LengthMeasurement plus(LengthMeasurement right) throws SameUoLRequiredException {
+    LengthMeasurement plus(LengthMeasurement right) throws SameUoLRequiredException {
         if (!checkUnitsOfMeasurementAreTheSame(this, right)) {
             throw new SameUoLRequiredException()
         }
@@ -103,11 +103,11 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if the 'right' parameter is <= 0
      */
-    public LengthMeasurement plus(Number right) throws LengthNotPositiveException {
+    LengthMeasurement plus(Number right) throws LengthNotPositiveException {
         if (!checkMeasurementValueIsPositive(right)) {
             throw new LengthNotPositiveException()
         }
-        return new LengthMeasurement(this.length + right, this.unitOfLength)
+        new LengthMeasurement(this.length + right, this.unitOfLength)
     }
 
     /**
@@ -117,7 +117,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @throws IllegalArgumentException if the measurements are of different units or if the operation results in a
      *      length <= 0
      */
-    public LengthMeasurement minus(LengthMeasurement right)
+    LengthMeasurement minus(LengthMeasurement right)
             throws SameUoLRequiredException, LengthNotPositiveException {
         if (!checkUnitsOfMeasurementAreTheSame(this, right)) {
             throw new SameUoLRequiredException()
@@ -131,11 +131,11 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if the operation results in a length <= 0
      */
-    public LengthMeasurement minus(Number right) throws LengthNotPositiveException {
+    LengthMeasurement minus(Number right) throws LengthNotPositiveException {
         if (!checkMeasurementValueIsPositive(right)) {
             throw new LengthNotPositiveException()
         }
-        return new LengthMeasurement(this.length - right, this.unitOfLength)
+        new LengthMeasurement(this.length - right, this.unitOfLength)
     }
 
     /**
@@ -144,11 +144,11 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if 'right' <= 0
      */
-    public LengthMeasurement div(Number right) throws LengthNotPositiveException {
+    LengthMeasurement div(Number right) throws LengthNotPositiveException {
         if (!checkMeasurementValueIsPositive(right)) {
             throw new LengthNotPositiveException()
         }
-        return new LengthMeasurement((Integer) (this.length / right), this.unitOfLength)
+        new LengthMeasurement((Integer) (this.length / right), this.unitOfLength)
     }
 
     /**
@@ -157,11 +157,11 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if the 'right' parameter is <= 0
      */
-    public LengthMeasurement multiply(Number right) throws LengthNotPositiveException {
+    LengthMeasurement multiply(Number right) throws LengthNotPositiveException {
         if (!checkMeasurementValueIsPositive(right)) {
             throw new LengthNotPositiveException()
         }
-        return new LengthMeasurement(this.length * right, this.unitOfLength)
+        new LengthMeasurement(this.length * right, this.unitOfLength)
     }
 
     /**
@@ -170,11 +170,10 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if the 'right' parameter is <= 0
      */
-    public LengthMeasurement multiply(LengthMeasurement right) throws SameUoLRequiredException {
+    LengthMeasurement multiply(LengthMeasurement right) throws SameUoLRequiredException {
         if (!checkUnitsOfMeasurementAreTheSame(this, right)) {
             throw new SameUoLRequiredException()
         }
-
         this * right.length
     }
 
@@ -184,29 +183,28 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @return a new Measurement instance with the length reflecting the operation
      * @throws IllegalArgumentException if exponent <= 0
      */
-    public LengthMeasurement power(Integer exponent) throws NonPositiveExponentException, LengthNotPositiveException {
+    LengthMeasurement power(Integer exponent) throws NonPositiveExponentException, LengthNotPositiveException {
         if (exponent < 0) {
             throw new NonPositiveExponentException()
         }
-        return new LengthMeasurement(this.length**exponent, this.unitOfLength)
+        new LengthMeasurement(this.length**exponent, this.unitOfLength)
     }
 
     @Override
-    public int compareTo(LengthMeasurement right) throws SameUoLRequiredException {
+    int compareTo(LengthMeasurement right) throws SameUoLRequiredException {
         if (!checkUnitsOfMeasurementAreTheSame(this, right)) {
             throw new SameUoLRequiredException()
         }
-
         this.length <=> right.length
     }
 
-    public static LengthMeasurement sqrt(LengthMeasurement m) {
-        return new LengthMeasurement(Math.sqrt(m.length.toDouble()), m.unitOfLength)
+    static LengthMeasurement sqrt(LengthMeasurement m) {
+        new LengthMeasurement(Math.sqrt(m.length.toDouble()), m.unitOfLength)
     }
 
     @Override
     protected LengthMeasurement clone() throws CloneNotSupportedException {
-        return new LengthMeasurement(this.length, this.unitOfLength)
+        new LengthMeasurement(this.length, this.unitOfLength)
     }
 
     class NonPositiveExponentException extends IllegalArgumentException {

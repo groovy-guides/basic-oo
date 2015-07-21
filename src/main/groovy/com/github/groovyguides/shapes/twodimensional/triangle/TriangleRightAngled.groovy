@@ -18,8 +18,8 @@ class TriangleRightAngled extends Triangle {
         super(sideA, sideB, sideC)
     }
 
-    public static LengthMeasurement calculateSideC(LengthMeasurement sideA, LengthMeasurement sideB) {
-        LengthMeasurement.sqrt(sideA**2 + sideB**2)
+    static LengthMeasurement calculateSideC(LengthMeasurement sideA, LengthMeasurement sideB) {
+        LengthMeasurement.sqrt(sideA ** 2 + sideB ** 2)
     }
 
     @Override

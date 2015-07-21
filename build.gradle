@@ -1,5 +1,5 @@
 apply plugin: 'groovy'
-//apply plugin: 'codenarc'
+apply plugin: 'codenarc'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 
@@ -8,13 +8,15 @@ repositories {
 }
 
 dependencies {
-    compile group: 'org.codehaus.groovy', name:'groovy-all', version: "$project.groovyVersion"
-    testCompile group: 'org.spockframework', name: 'spock-core', version:"$project.spockVersion"
+    compile module(group: 'org.codehaus.groovy', name: 'groovy-all', version: "$project.groovyVersion") {
+        dependency(group: 'commons-cli', name: 'commons-cli', version: '1.2')
+    }
+    testCompile group: 'org.spockframework', name: 'spock-core', version: "$project.spockVersion"
 }
 
-task runScript (dependsOn: 'classes', type: JavaExec) {
+task runScript(dependsOn: 'classes', type: JavaExec) {
     description 'Runs the groovy script'
-    main = 'com.github.groovyguides.shapes.Main'
+    main = 'com.github.groovyguides.shapes.app.Cli'
     classpath = sourceSets.main.runtimeClasspath
 }
 
@@ -22,22 +24,4 @@ task wrapper(type: Wrapper) {
     gradleVersion = project.gradleVersion
 }
 
-/*
-codenarcMain {
-    ignoreFailures false
-    configFile file('config/codenarc/codenarc-main.rules')
 
-    maxPriority1Violations 0
-    maxPriority2Violations 10
-    maxPriority3Violations 20
-}
-
-codenarcTest {
-    ignoreFailures true
-    configFile file('config/codenarc/codenarc-test.rules')
-
-    maxPriority1Violations 0
-    maxPriority2Violations 10
-    maxPriority3Violations 20
-}
-*/

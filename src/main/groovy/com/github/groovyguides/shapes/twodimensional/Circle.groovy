@@ -1,20 +1,23 @@
 package com.github.groovyguides.shapes.twodimensional
 
+import static java.lang.Math.PI
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import groovy.transform.ToString
 import groovy.transform.EqualsAndHashCode
-import static java.lang.Math.PI
 
-@EqualsAndHashCode(includeFields=true)
-@ToString(includeNames=true,includeFields=true,includeSuper=true)
+/**
+ * @author Duncan Dickinson
+ */
+@EqualsAndHashCode(includeFields = true)
+@ToString(includeNames = true, includeFields = true, includeSuper = true)
 class Circle extends BasicTwoDimensionalShape {
-    
+
     private final LengthMeasurement radius
     private final LengthMeasurement diameter
-    
+
     private Circle() {}
-    
-    public Circle(LengthMeasurement radius) {
+
+    Circle(LengthMeasurement radius) {
         this.radius = radius
         this.diameter = this.radius * 2
     }
@@ -30,14 +33,14 @@ class Circle extends BasicTwoDimensionalShape {
     }
 
     LengthMeasurement getRadius() {
-        return radius
+        radius
     }
 
     LengthMeasurement getDiameter() {
-        return diameter
+        diameter
     }
 
     LengthMeasurement getCircumference() {
-        return super.perimeter
+        super.perimeter
     }
 }
