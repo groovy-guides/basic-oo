@@ -19,7 +19,9 @@ class Rectangle extends BasicTwoDimensionalShape {
     /**
      * Not useful
      */
-    Rectangle(){}
+    Rectangle() {
+        
+    }
 
     /**
      * A rectangular shape
@@ -37,7 +39,7 @@ class Rectangle extends BasicTwoDimensionalShape {
 
     @Override
     protected void calculatePerimeter() {
-        this.setPerimeter(this.length * 2 + this.width * 2)
+        this.perimeter = (this.length + this.width) * 2
     }
 
     @Override

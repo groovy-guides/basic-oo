@@ -10,7 +10,9 @@ class Square extends Rectangle {
     /**
      * Not useful
      */
-    Square(){}
+    Square() {
+
+    }
 
     Square(LengthMeasurement length) {
         super(length, length)

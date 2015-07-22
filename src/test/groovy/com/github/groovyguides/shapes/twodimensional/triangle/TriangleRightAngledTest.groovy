@@ -21,8 +21,8 @@ class TriangleRightAngledTest extends Specification {
         LengthMeasurement b = new Millimetre(sideB)
         TriangleRightAngled t = new TriangleRightAngled(a, b)
         expect: "that the perimeter and area calculations are correct"
-        t.getPerimeter().getLength() == perimeter
-        t.getArea().getLength() == area
+        t.perimeter.length == perimeter
+        t.area.length == area
         where: "the dimensions and resulting measurements are"
         sideA | sideB || perimeter | area
         3     | 4     || 12        | 6

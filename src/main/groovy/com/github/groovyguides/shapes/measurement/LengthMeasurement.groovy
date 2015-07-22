@@ -15,6 +15,22 @@ import groovy.transform.ToString
 @ToString(includeNames = true, includeFields = true)
 class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
 
+    ; {
+
+        /*
+         * The code below overloads the Number class's arithmetic operators
+         * and allows them to handle LengthMeasurements
+         */
+
+        Number.metaClass.plus << { LengthMeasurement m ->
+            m + delegate
+        }
+
+        Number.metaClass.multiply << { LengthMeasurement m ->
+            m * delegate
+        }
+    }
+
     /** The length measured */
     private final Number length
 
@@ -67,7 +83,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
      * @param measurements A series of measurements
      * @return true if all checks succeed, an exception is raised otherwise
      */
-    static Boolean checkUnitsOfMeasurementAreTheSame(LengthMeasurement ...measurements) {
+    static Boolean checkUnitsOfMeasurementAreTheSame(LengthMeasurement... measurements) {
         if (measurements.size() <= 1) {
             return true
         }
@@ -209,6 +225,7 @@ class LengthMeasurement implements Comparable<LengthMeasurement>, Cloneable {
 
     class NonPositiveExponentException extends IllegalArgumentException {
         public static final String NON_POSITIVE_EXPONENT = Messages.getString('NonPositiveExponentException.message')
+
         NonPositiveExponentException() {
             super(NON_POSITIVE_EXPONENT)
         }

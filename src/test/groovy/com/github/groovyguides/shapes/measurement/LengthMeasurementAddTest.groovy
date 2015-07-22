@@ -18,11 +18,8 @@ class LengthMeasurementAddTest extends Specification {
             LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
-        when:
-            LengthMeasurement result = lhs + rhs
-
-        then: "the sum of the two measurements should equal the length held in the result"
-            result.length == answer
+        expect: "the sum of the two measurements should equal the length held in the result"
+            (lhs + rhs).length == answer
 
         where: "the left and right measurement values and their summed result are"
             left| right || answer
@@ -37,11 +34,9 @@ class LengthMeasurementAddTest extends Specification {
             LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             Number rhs = right
 
-        when:
-            LengthMeasurement result = lhs + rhs
-
-        then: "that "
-            result.length == answer
+        expect: "that "
+            (lhs + rhs).length == answer
+            (rhs + lhs).length == answer
 
         where: "the left and right measurement values and their summed result are"
             left| right || answer

@@ -19,9 +19,9 @@ class CircleTest extends Specification {
         expect: "that the fields are set correctly"
             r.radius.length == radius
             r.diameter.length == radius * 2
-            r.getPerimeter().getLength().trunc(4) == perimeter
-            r.getPerimeter() == r.getCircumference()
-            r.getArea().getLength().trunc(4) == area
+            r.perimeter.length.trunc(4) == perimeter
+            r.perimeter == r.circumference
+            r.area.length.trunc(4) == area
 
         where: "the dimensions and resulting measurements are"
         radius  || diameter  | perimeter | area

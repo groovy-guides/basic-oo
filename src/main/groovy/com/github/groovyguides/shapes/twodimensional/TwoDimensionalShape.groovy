@@ -11,11 +11,11 @@ interface TwoDimensionalShape {
      *
      * @return the perimeter of the shape
      */
-    public LengthMeasurement getPerimeter()
+    LengthMeasurement getPerimeter()
 
     /**
      *
      * @return the area of the shape
      */
-    public LengthMeasurement getArea()
+    LengthMeasurement getArea()
 }

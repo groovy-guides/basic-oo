@@ -17,7 +17,9 @@ class Triangle extends BasicTwoDimensionalShape {
 
     private final Map<String, LengthMeasurement> sides
 
-    Triangle() {}
+    Triangle() {
+
+    }
 
     Triangle(LengthMeasurement sideA, LengthMeasurement sideB, LengthMeasurement sideC)
             throws SameUoLRequiredException, IllegalArgumentException {
@@ -77,7 +79,7 @@ class Triangle extends BasicTwoDimensionalShape {
 
         Number area = Math.sqrt(working)
 
-        this.setArea(new LengthMeasurement(area, this.sides.a.getUnitOfLength()))
+        this.area = new LengthMeasurement(area, this.sides.a.getUnitOfLength())
     }
 
 }

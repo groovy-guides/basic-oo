@@ -20,8 +20,8 @@ class TriangleEquilateralTest extends Specification {
         LengthMeasurement a = new Millimetre(sideA)
         TriangleEquilateral t = new TriangleEquilateral(a)
         expect: "that the perimeter and area calculations are correct"
-        t.getPerimeter().getLength() == perimeter
-        t.getArea().getLength().trunc(4) == area
+        t.perimeter.length == perimeter
+        t.area.length.trunc(4) == area
         where: "the dimensions and resulting measurements are"
         sideA || perimeter | area
         3     || 9         | 3.8971

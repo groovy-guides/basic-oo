@@ -18,11 +18,8 @@ class LengthMeasurementMinusTest extends Specification {
             LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
             LengthMeasurement rhs = new LengthMeasurement(right, UoM.MILLIMETRE)
 
-        when: "they are subtracted"
-            LengthMeasurement result = lhs - rhs
-        
-        then: "the result should equal the length held in the answer"
-            result.length == answer
+        expect: "the result should equal the length held in the answer"
+            (lhs - rhs).length == answer
 
         where: "the left and right measurement values and the answer are"
             left| right || answer

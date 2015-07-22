@@ -18,11 +18,9 @@ class LengthMeasurementMultiplyTest extends Specification {
         LengthMeasurement lhs = new LengthMeasurement(left, UoM.MILLIMETRE)
         Number rhs = right
 
-        when: "they are divided"
-        LengthMeasurement result = lhs * rhs
-
-        then: "the result should equal the length held in the answer"
-        result.length == answer
+        expect: "the result should equal the length held in the answer"
+            (lhs * rhs).length == answer
+            (rhs * lhs).length == answer
 
         where: "the left and right measurement values and the answer are"
         left | right || answer

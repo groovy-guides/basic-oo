@@ -22,8 +22,8 @@ class RectangleTest extends Specification {
         expect: "that the fields are set correctly"
             r.length.length == length
             r.width.length == width
-            r.getPerimeter().getLength() == perimeter
-            r.getArea().getLength() == area
+            r.perimeter.length == perimeter
+            r.area.length == area
         where: "the dimensions and resulting measurements are"
         length  | width || perimeter | area
         2       | 2     || 8         | 4
@@ -40,8 +40,8 @@ class RectangleTest extends Specification {
         expect: "that the fields are set correctly"
         r.length.length == length
         r.width.length == width
-        r.getPerimeter().getLength() == perimeter
-        r.getArea().getLength() == area
+        r.perimeter.length == perimeter
+        r.area.length == area
         where: "the dimensions and resulting measurements are"
         length  | width || perimeter | area
         2       | 2     || 8         | 4

@@ -21,11 +21,11 @@ class TriangleIsoscelesTest extends Specification {
         LengthMeasurement b = new Millimetre(sideB)
         TriangleIsosceles t = new TriangleIsosceles(a, b)
         expect: "that the perimeter and area calculations are correct"
-        t.getPerimeter().getLength() == perimeter
-        t.getArea().getLength().trunc(4) == area
+        t.perimeter.length == perimeter
+        t.area.length.trunc(4) == area
         where: "the dimensions and resulting measurements are"
         sideA | sideB || perimeter | area
-        4     | 5     || 14        | 9.1651
+        4.0     | 5.0     || 14.0        | 9.1651
 
     }
 

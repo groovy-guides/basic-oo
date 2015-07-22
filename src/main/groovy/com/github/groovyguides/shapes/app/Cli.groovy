@@ -19,7 +19,7 @@ class Cli {
     }
   
   static void cliError(text) {
-		System.err << text + "\n"
+		System.err << "$text\n"
 		System.exit(1)
 	}
 

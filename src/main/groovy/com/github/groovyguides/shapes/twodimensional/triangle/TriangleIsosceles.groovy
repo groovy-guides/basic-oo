@@ -19,7 +19,6 @@ class TriangleIsosceles extends Triangle {
     @Override
     protected void calculateArea() {
         Number height = Math.sqrt(this.sideB.length**2 - (this.sideA.length**2 / 4))
-        this.setArea(this.sideA * (height / 2))
+        this.area = this.sideA * (height / 2)
     }
 }
-
