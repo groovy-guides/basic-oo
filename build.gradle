@@ -24,4 +24,19 @@ task wrapper(type: Wrapper) {
     gradleVersion = project.gradleVersion
 }
 
+codenarcMain {
+    ignoreFailures true
+    configFile file('config/codenarc/codenarc.xml')
+	 exclude '**/package-info.groovy'
+    maxPriority1Violations 0
+    maxPriority2Violations 10
+    maxPriority3Violations 20
+}
 
+codenarcTest {
+    ignoreFailures true
+
+    maxPriority1Violations 0
+    maxPriority2Violations 10
+    maxPriority3Violations 20
+}
