@@ -2,7 +2,6 @@ package com.github.groovyguides.shapes.twodimensional.triangle
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import com.github.groovyguides.shapes.measurement.Millimetre
-import com.github.groovyguides.shapes.twodimensional.triangle.TriangleEquilateral
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll
@@ -24,8 +23,8 @@ class TriangleEquilateralTest extends Specification {
         t.area.length.trunc(4) == area
         where: "the dimensions and resulting measurements are"
         sideA || perimeter | area
-        3     || 9         | 3.8971
-        7.2   || 21.6      | 22.4473
+        3 || 9 | 3.8971
+        7.2 || 21.6 | 22.4473
 
     }
 

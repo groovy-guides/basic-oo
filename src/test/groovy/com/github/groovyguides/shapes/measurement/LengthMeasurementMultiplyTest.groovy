@@ -19,8 +19,8 @@ class LengthMeasurementMultiplyTest extends Specification {
         Number rhs = right
 
         expect: "the result should equal the length held in the answer"
-            (lhs * rhs).length == answer
-            (rhs * lhs).length == answer
+        (lhs * rhs).length == answer
+        (rhs * lhs).length == answer
 
         where: "the left and right measurement values and the answer are"
         left | right || answer
@@ -63,35 +63,35 @@ class LengthMeasurementMultiplyTest extends Specification {
         }
 
         then: "an IllegalArgumentException is thrown"
-            e instanceof IllegalArgumentException
+        e instanceof IllegalArgumentException
 
         where: "the left and right measurement values are"
-        left    | right
-        10      | -5
-        15      | -10
-        9       | -9
-        8       | -7
+        left | right
+        10 | -5
+        15 | -10
+        9 | -9
+        8 | -7
     }
 
     def "Attempting to multiply two measurements (#left, #right) with different UoM throws an IllegalArgumentException"() {
         given: "One measurement and a Number"
-            def lhs = left
-            def rhs = right
+        def lhs = left
+        def rhs = right
 
         when: "we multiply the two measurements with different UoM"
-            Exception e = null
-            try {
-                lhs * rhs
-            } catch (any) {
-                e = any
-            }
+        Exception e = null
+        try {
+            lhs * rhs
+        } catch (any) {
+            e = any
+        }
 
         then: "an IllegalArgumentException is thrown"
-            e instanceof IllegalArgumentException
+        e instanceof IllegalArgumentException
 
         where: "the left and right measurement values are"
-            left | right
-            new LengthMeasurement(10, UoM.MILLIMETRE) | new LengthMeasurement(10, UoM.INCH)
-            new LengthMeasurement(10, UoM.INCH) | new LengthMeasurement(10, UoM.MILLIMETRE)
+        left | right
+        new LengthMeasurement(10, UoM.MILLIMETRE) | new LengthMeasurement(10, UoM.INCH)
+        new LengthMeasurement(10, UoM.INCH) | new LengthMeasurement(10, UoM.MILLIMETRE)
     }
 }

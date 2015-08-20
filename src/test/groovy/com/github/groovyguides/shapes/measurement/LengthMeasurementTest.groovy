@@ -19,14 +19,14 @@ class LengthMeasurementTest extends Specification {
 
 
         then: "the measurement's length and UoM are correct"
-            m.getLength() == length
-            m.getUnitOfLength() == uom
+        m.getLength() == length
+        m.getUnitOfLength() == uom
 
         where: "the values are"
-            length  | uom                            || _
-            1       | UnitOfLength.INCH         || _
-            1       | UnitOfLength.MILLIMETRE   || _
-            99      | UnitOfLength.INCH         || _
+        length | uom || _
+        1 | UnitOfLength.INCH || _
+        1 | UnitOfLength.MILLIMETRE || _
+        99 | UnitOfLength.INCH || _
 
     }
 
@@ -34,20 +34,20 @@ class LengthMeasurementTest extends Specification {
     def "Creating a new Measurement instance with a negative or zero value (#value) will cause an IllegalArgumentException"() {
 
         when: "an attempt is made to create a new instance with a negative length"
-            Exception e = null
-            try {
-                LengthMeasurement m = new LengthMeasurement(length, UnitOfLength.INCH)
-            } catch (any) {
-                e = any
-            }
+        Exception e = null
+        try {
+            LengthMeasurement m = new LengthMeasurement(length, UnitOfLength.INCH)
+        } catch (any) {
+            e = any
+        }
 
         then: "an IllegalArgumentException is thrown"
-            e instanceof IllegalArgumentException
+        e instanceof IllegalArgumentException
 
         where: "the values are"
-            length  | _
-            -1      | _
-            -99     | _
-            0       | _
+        length | _
+        -1 | _
+        -99 | _
+        0 | _
     }
 }

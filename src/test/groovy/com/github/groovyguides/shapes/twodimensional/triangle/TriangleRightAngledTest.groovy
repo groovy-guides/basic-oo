@@ -2,7 +2,6 @@ package com.github.groovyguides.shapes.twodimensional.triangle
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import com.github.groovyguides.shapes.measurement.Millimetre
-import com.github.groovyguides.shapes.twodimensional.triangle.TriangleRightAngled
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll
@@ -25,7 +24,7 @@ class TriangleRightAngledTest extends Specification {
         t.area.length == area
         where: "the dimensions and resulting measurements are"
         sideA | sideB || perimeter | area
-        3     | 4     || 12        | 6
+        3 | 4 || 12 | 6
 
     }
 

@@ -20,13 +20,15 @@ class TriangleTest extends Specification {
         LengthMeasurement b = new Millimetre(sideB)
         LengthMeasurement c = new Millimetre(sideC)
         Triangle t = new Triangle(a, b, c)
+
         expect: "that the perimeter and area calculations are correct"
         t.getPerimeter().getLength() == perimeter
         t.getArea().getLength().trunc(4) == area
+
         where: "the dimensions and resulting measurements are"
-        sideA | sideB | sideC  || perimeter | area
-        3     | 4     | 5      || 12        | 6
-        3     | 3     | 3      || 9         | 3.8971
+        sideA | sideB | sideC || perimeter | area
+        3 | 4 | 5 || 12 | 6
+        3 | 3 | 3 || 9 | 3.8971
 
     }
 

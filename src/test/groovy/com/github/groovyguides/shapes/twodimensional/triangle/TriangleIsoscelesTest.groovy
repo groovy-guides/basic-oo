@@ -2,7 +2,6 @@ package com.github.groovyguides.shapes.twodimensional.triangle
 
 import com.github.groovyguides.shapes.measurement.LengthMeasurement
 import com.github.groovyguides.shapes.measurement.Millimetre
-import com.github.groovyguides.shapes.twodimensional.triangle.TriangleIsosceles
 import spock.lang.Specification
 import spock.lang.Subject
 import spock.lang.Unroll
@@ -25,7 +24,7 @@ class TriangleIsoscelesTest extends Specification {
         t.area.length.trunc(4) == area
         where: "the dimensions and resulting measurements are"
         sideA | sideB || perimeter | area
-        4.0     | 5.0     || 14.0        | 9.1651
+        4.0 | 5.0 || 14.0 | 9.1651
 
     }
 
